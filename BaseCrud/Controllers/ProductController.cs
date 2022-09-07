@@ -28,10 +28,14 @@ namespace BaseCrud.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(Product obj)
         {
-            _db.Products.Add(obj);
-            _db.SaveChanges();
+            if (ModelState.IsValid)
+            {
+                _db.Products.Add(obj);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
 
-            return RedirectToAction("Index");
+            return View(obj);
         }
     }
 }
