@@ -1,0 +1,18 @@
+﻿@model Product
+
+<h1>Delete</h1>
+
+<form method="post">
+	<input asp-for="Id" hidden />
+	<div class="mb-3">
+		<label asp-for="Name"></label>
+		<input disabled asp-for="Name" />
+	</div>
+	<div class="mb-3">
+		<label asp-for="Age"></label>
+		<input disabled asp-for="Age" />
+	</div>
+	<button type="submit" class="btn btn-primary">Delete</button>
+</form>
+
+<a asp-controller="Product" asp-action="Index">Go Back</a>

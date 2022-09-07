@@ -63,5 +63,26 @@ namespace BaseCrud.Controllers
 
             return View(obj);
         }
+
+        public IActionResult Delete(int id)
+        {
+            var productFromDb = _db.Products.Find(id);
+
+            if (productFromDb == null)
+            {
+                return NotFound();
+            }
+
+            return View(productFromDb);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Delete(Product obj)
+        {
+            _db.Products.Remove(obj);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }
