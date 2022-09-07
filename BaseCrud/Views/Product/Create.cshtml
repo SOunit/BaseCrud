@@ -4,10 +4,12 @@
 	<div class="mb-3">
 		<label asp-for="Name"></label>
 		<input asp-for="Name" class="form-controll" />
+		<span asp-validation-for="Name" class="text-danger"></span>		
 	</div>
 	<div class="mb-3">
 		<label asp-for="Age"></label>
 		<input asp-for="Age" class="form-controll" />
+		<span asp-validation-for="Age" class="text-danger"></span>
 	</div>	
 	<button type="submit" class="btn btn-primary">Create</button>
 </form>
