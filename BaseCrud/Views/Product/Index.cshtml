@@ -7,6 +7,7 @@
 		<tr>
 			<th>Name</th>
 			<th>Age</th>
+			<th></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -15,6 +16,9 @@
 			<tr>
 				<td>@product.Name</td>
 				<td>@product.Age</td>
+				<td>
+					<a asp-controller="Product" asp-action="Edit" asp-route-id="@product.Id" class="btn btn-primary">Edit</a>
+				</td>
 			</tr>
 		}
 	</tbody>

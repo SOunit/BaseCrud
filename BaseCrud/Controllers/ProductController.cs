@@ -37,5 +37,31 @@ namespace BaseCrud.Controllers
 
             return View(obj);
         }
+
+        public IActionResult Edit(int id)
+        {
+            var productFromDb = _db.Products.Find(id);
+
+            if (productFromDb == null)
+            {
+                return NotFound();
+            }
+
+            return View(productFromDb);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(Product obj)
+        {
+            if (ModelState.IsValid)
+            {
+                _db.Products.Update(obj);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(obj);
+        }
     }
 }
