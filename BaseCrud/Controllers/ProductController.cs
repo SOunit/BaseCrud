@@ -18,5 +18,20 @@ namespace BaseCrud.Controllers
             IEnumerable<Product> products = _db.Products;
             return View(products);
         }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(Product obj)
+        {
+            _db.Products.Add(obj);
+            _db.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
     }
 }

@@ -1,0 +1,17 @@
+﻿@model Product
+
+<form method="post" class="mb-5">
+	<div class="mb-3">
+		<label asp-for="Name"></label>
+		<input asp-for="Name" class="form-controll" />
+	</div>
+	<div class="mb-3">
+		<label asp-for="Age"></label>
+		<input asp-for="Age" class="form-controll" />
+	</div>	
+	<button type="submit" class="btn btn-primary">Create</button>
+</form>
+
+<div>
+	<a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Index">Go Back</a>
+</div>
